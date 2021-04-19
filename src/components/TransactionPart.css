@@ -1,0 +1,18 @@
+.TransactionPart {
+  display: flex;
+  align-items: flex-start;
+
+  width: 40vw;
+}
+
+.TransactionPart span {
+  /* font-size: 1.25rem; */
+  padding-left: 0.75vw;
+  text-align: left;
+
+}
+
+.Amount {
+  width: 20vw;
+  max-width: 100px;
+}

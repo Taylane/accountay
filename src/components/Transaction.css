@@ -1,0 +1,41 @@
+.transaction {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  color: #4a4a4a;
+  background-color: #f5f5f5;
+
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+    0 0 0 1px rgb(10 10 10 / 2%);
+
+  border-radius: 6px;
+  padding: 1vw;
+  /* margin: 0.5vw; */
+  margin-bottom: 1vh;
+
+  width: 97vw;
+  max-width: 1300px;
+}
+
+.income{
+  border-left: 5px solid #adff2f;
+}
+
+.outcome{
+  border-left: 5px solid #FF2F45;
+}
+
+
+.transaction span {
+  /* font-size: 1.5rem; */
+}
+
+.transaction span:not(:first-child) {
+  padding-left: 0.75vw;
+}
+
+.transaction span:last-child {
+  padding-left: 0.75vw;
+  padding-right: 0.75vw;
+}

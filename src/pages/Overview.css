@@ -1,0 +1,59 @@
+.Overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: auto;
+  text-align: start;
+}
+
+.Header{
+  display: flex;
+  
+}
+
+
+/* .Overview Button{
+  display: flex;
+  align-self: flex-start;
+  margin: 2vh;
+} */
+
+.Month-Selection{
+  /* display: flex; */
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+
+
+.Month-Buttons{
+	/* display: flex; */
+  /* flex-direction: row; */
+
+  /* margin-top: 3vh */
+}
+
+.Filters{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+
+  padding: 3vh;
+  width: 48vw;
+}
+
+.NewTransaction{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+
+  width: 48vw;
+
+}

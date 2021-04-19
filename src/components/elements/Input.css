@@ -1,0 +1,75 @@
+/* .Input {
+    min-width: 30vh;
+    max-width: 50vh;
+    color: #4a4a4a;
+
+}
+
+.Input label {
+  position: relative;
+  display: block;
+  min-height: 45px;
+  width: 10vh;
+}
+.Input .placeholder {
+  position: absolute; 
+  display: block;
+  top: 23px;
+  z-index: 2;
+  font-size: 16px;
+  transition: all 200ms ease-in-out;
+  cursor: text;
+}
+.Input input,
+.Input textarea {
+  position: absolute;
+  top: 15px;
+  z-index: 1;
+  font-size: 16px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  transition: border-color 200ms ease-in-out;
+  outline: none;
+  padding: 0;
+  margin: 0;
+
+  
+}
+.Input textarea {
+  min-height: 30px;
+  padding: 8px 0;
+}
+.Input input {
+  height: 30px;
+}
+.Input input:focus,
+.Input input:valid,
+.Input textarea:focus,
+.Input textarea:valid {
+  border-bottom: 2px solid #4a4a4a;
+}
+.Input input:focus + .placeholder,
+.Input input:valid + .placeholder,
+.Input textarea:focus + .placeholder,
+.Input textarea:valid + .placeholder {
+  top: 0;
+  cursor: inherit;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.Input span{
+  width: auto;
+} */
+
+.Input {
+  /* min-width: 30vh; */
+  max-width: 50vh;
+  color: #4a4a4a;
+}
+
+.Input label {
+  min-height: 45px;
+  width: 10vh;
+  padding-left: 0.5vh;
+}

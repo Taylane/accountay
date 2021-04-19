@@ -1,0 +1,37 @@
+.NewTransaction {
+  display: flex;
+  flex-direction: column;
+}
+
+.Transaction-Header {
+  color: white;
+  background-color: #282c34;
+
+  height: 6vh;
+  border-bottom: 5px solid gray;
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+    0 0 0 1px rgb(10 10 10 / 2%);
+
+  width: 100%;
+}
+/* 
+.Transaction-Form {
+  width: 100%;
+  margin: 0 2vw 0 2vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.Overall-Form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.Selects {
+  display: flex;
+}
+.Action-Buttons {
+  width: 100%;
+} */

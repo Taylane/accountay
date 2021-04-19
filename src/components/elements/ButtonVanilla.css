@@ -1,0 +1,18 @@
+.Button-Vanilla{
+    width: 8vw;
+    height: 4vh;
+    border: 0 none;
+
+    color: white;
+    background-color: #00DCC5;
+    font-size: 3vh;
+    font-family: "roboto";
+    text-justify: center;
+}
+@media only screen and (max-width: 600px) {
+    .Button-Vanilla {
+        font-size: 1.7vh;
+        text-justify: center;
+
+    }
+  }
