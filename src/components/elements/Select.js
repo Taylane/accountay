@@ -5,10 +5,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import { default as MuiSelect } from '@material-ui/core/Select';
+import './Select.css';
 
 function Select({ options, label, value, onChange, ...props }) {
     return (
-        <FormControl {...props}>
+        <FormControl {...props} className="Select">
             <InputLabel id={label}>{label}</InputLabel>
             <MuiSelect
                 labelId={label}

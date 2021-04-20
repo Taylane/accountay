@@ -11,13 +11,11 @@ import Input from '../components/elements/Input';
 
 const customStyles = {
     content: {
-        padding: 'auto',
-        margin: 'auto',
+        padding: '0',
+        // margin: 'auto',
 
         borderRadius: '6px',
         boxShadow: "0 0.5em 1em -0.125em rgb(10 10 10 / 10%),0 0 0 1px rgb(10 10 10 / 2%)",
-
-        width: "fit-content"
     }
 };
 
@@ -42,6 +40,8 @@ function Overview() {
     }
 
     async function fetchData() {
+        // const res = await fetch(apiUrl + "/transactions?date_like=2021-04");
+       
         const res = await fetch(apiUrl + "/transactions");
         setTransactions(await res.json())
     }
@@ -91,7 +91,7 @@ function Overview() {
                 style={customStyles}
                 ariaHideApp={false}
             >
-                <NewTransaction />
+                <NewTransaction closeModal={closeModal}/>
             </Modal>
             {renderTransactions()}
         </div>

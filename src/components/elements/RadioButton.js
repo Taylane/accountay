@@ -8,7 +8,6 @@ import { blue } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 
 import './RadioButton.css'
-import { Label } from 'theme-ui';
 
 const CustomRadio = withStyles({
     root: {
@@ -22,7 +21,7 @@ const CustomRadio = withStyles({
 
 function RadioButton({ label, value, onChange, options, ...props }) {
     return (
-        <FormControl component="fieldset" {...props}>
+        <FormControl component="fieldset" {...props} className="Radio-Button">
             <FormLabel component="legend">{label}</FormLabel>
             <RadioGroup
                 name={label}

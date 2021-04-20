@@ -45,15 +45,3 @@
   padding: 3vh;
   width: 48vw;
 }
-
-.NewTransaction{
-  display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	align-items: center;
-	align-content: center;
-
-  width: 48vw;
-
-}

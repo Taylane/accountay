@@ -1,6 +1,7 @@
 .NewTransaction {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .Transaction-Header {
@@ -11,17 +12,60 @@
   border-bottom: 5px solid gray;
   box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
     0 0 0 1px rgb(10 10 10 / 2%);
-
-  width: 100%;
 }
-/* 
-.Transaction-Form {
-  width: 100%;
-  margin: 0 2vw 0 2vw;
 
+.Transaction-TextField {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+}
+
+.Transaction-Form {
   display: flex;
   flex-direction: column;
+  padding: 1vh 4vw 1vh 4vw;
 }
+
+.Selects {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* align-items: center; */
+  margin-top: 4vh;
+}
+
+.Persons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.Person-Label {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  text-justify: center;
+  text-align: center; */
+
+  font-size: 3vh;
+}
+.Action-Buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* justig-self: flex-end; */
+  height: 100%;
+}
+
+.Action-Buttons Button {
+  margin: 0 2vw 2vw 0;
+}
+
+/* 
 
 .Overall-Form {
   display: flex;
