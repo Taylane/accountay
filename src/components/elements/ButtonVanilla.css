@@ -1,18 +1,31 @@
 .Button-Vanilla{
     width: 8vw;
     height: 4vh;
-    border: 0 none;
+    border:  0 none ;
+    border-top:  0.5vh none ;
 
     color: white;
-    background-color: #00DCC5;
+    background-color: #00DCC2;
     font-size: 3vh;
     font-family: "roboto";
     text-justify: center;
+    
+
 }
+
+.Selected-Button{
+    border-bottom: 0.5vh solid rgb(2, 161, 143);
+    border-top: 0.5vh solid rgb(2, 161, 143);
+}
+
 @media only screen and (max-width: 600px) {
     .Button-Vanilla {
         font-size: 1.7vh;
         text-justify: center;
-
     }
-  }
+    
+    .Selected-Button{
+        border-bottom: 0.5vh solid rgb(2, 161, 143)
+    }
+}
+

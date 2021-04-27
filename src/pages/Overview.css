@@ -7,11 +7,24 @@
   text-align: start;
 }
 
-.Header{
-  display: flex;
-  
+.Fab{
+  position: fixed;
+  left: 40vw;
+  top: 78vh;
+  z-index: 999;
+
+/* align-self: flex-end;
+justify-self: auto */
+}
+.Fab-Div{
+  height: 0;
 }
 
+.Transactions{
+  height:  85vh;
+  overflow-y: scroll;
+
+}
 
 /* .Overview Button{
   display: flex;

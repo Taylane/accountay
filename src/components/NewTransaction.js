@@ -97,26 +97,28 @@ function NewTransaction({ closeModal }) {
                         type="number"
                         style={{ width: '15vw' }}
                         required />
-                    <DatePicker
+
+                </div>
+                <div className="Selects">
+                <DatePicker
                         label="Data"
                         value={formData.date}
                         onChange={(value) => handleFormChange('date', value)}>
                     </DatePicker>
-                </div>
-                <div className="Selects">
-                    <RadioButton
-                        options={formFields.transactionTypes}
-                        label="Tipo de movimento:"
-                        value={formData.type}
-                        onChange={(value) => handleFormChange('type', value)}
-                        required />
-
                     <Select
                         options={formFields.recurrencesTypes}
                         label="Recorrencia:"
                         value={formData.recurrency}
                         onChange={(value) => handleFormChange('recurrency', value)}
                         required />
+                    <RadioButton
+                        options={formFields.transactionTypes}
+                        label="Tipo de movimento:"
+                        value={formData.type}
+                        onChange={(value) => handleFormChange('type', value)}
+                        required />
+                    
+                    
                 </div>
                 <div >
                     <p>Pessoas</p>
