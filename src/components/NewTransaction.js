@@ -100,7 +100,7 @@ function NewTransaction({ closeModal }) {
 
                 </div>
                 <div className="Selects">
-                <DatePicker
+                    <DatePicker
                         label="Data"
                         value={formData.date}
                         onChange={(value) => handleFormChange('date', value)}>
@@ -117,27 +117,27 @@ function NewTransaction({ closeModal }) {
                         value={formData.type}
                         onChange={(value) => handleFormChange('type', value)}
                         required />
-                    
-                    
+
+
                 </div>
                 <div >
                     <p>Pessoas</p>
                     <div className="Persons">
                         {persons && personData && persons.map((person, index) =>
-                        (
-                            <label
-                                className="Person-Label"
-                                key={index}
-                                htmlFor={person.name}>
-                                {person.name}
-                                <TextField
-                                    label={'Valor por pessoa'}
-                                    // value={personData[person.id].name}
-                                    onChange={(value) => handlePersonFormChange(person, value)}
-                                    type="number"
-                                />
-                            </label>
-                        )
+                            (
+                                <label
+                                    className="Person-Label"
+                                    key={index}
+                                    htmlFor={person.name}>
+                                    {person.name}
+                                    <TextField
+                                        label={'Valor por pessoa'}
+                                        // value={personData[person.id].name}
+                                        onChange={(value) => handlePersonFormChange(person, value)}
+                                        // type="number"
+                                        pattern="^\d*(\.\d{0,2})?$" />
+                                </label>
+                            )
                         )}
                     </div>
                 </div>

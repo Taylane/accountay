@@ -1,0 +1,21 @@
+.Balance{
+    display: flex;
+	justify-content: space-around;
+
+    color: #4a4a4a;
+  background-color: gainsboro;
+
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+    0 0 0 1px rgb(10 10 10 / 2%);
+
+  border-radius: 6px;
+  padding: 1vw;
+  margin: 0 0.5vw 0.5vw 0.5vw;
+  margin-bottom: 1vh;
+
+  width: 97vw;
+}
+
+.Balance div{
+    display: flex;
+}

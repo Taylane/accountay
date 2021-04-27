@@ -21,8 +21,8 @@ justify-self: auto */
 }
 
 .Transactions{
-  height:  85vh;
   overflow-y: scroll;
+  height: 83vh;
 
 }
 

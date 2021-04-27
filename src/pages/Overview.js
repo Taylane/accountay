@@ -7,9 +7,9 @@ import Button from '../components/elements/Button'
 import { apiUrl } from '../env';
 import './Overview.css'
 import ButtonVanilla from '../components/elements/ButtonVanilla';
-import Input from '../components/elements/Input';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import Balance from '../components/Balance'
 
 const customStyles = {
     content: {
@@ -39,12 +39,10 @@ const months = [
 function Overview() {
     const [transactions, setTransactions] = useState(null)
     const [modalIsOpen, setIsOpen] = React.useState(false);
-    const [monthSelected, setMonthSelected] = React.useState(new Date().getMonth() + 1);
+    const [monthSelected, setMonthSelected] = useState(new Date().getMonth() + 1);
 
     useEffect(() => {
         fetchData(monthSelected)
-        console.log('mudou mes ', monthSelected);
-
     }, [monthSelected])
 
     function openModal() {
@@ -66,7 +64,8 @@ function Overview() {
     }
 
     function renderTransactions() {
-        if (transactions == null) return
+        if (transactions == null || transactions.length == 0) return
+
         return (
             <div className="Transactions">
                 {transactions.map((transaction, index) => <Transaction key={index} transaction={transaction} />)}
@@ -77,9 +76,9 @@ function Overview() {
     return (
         <div className="Overview">
             <div className="Fab-Div">
-                <Fab className="Fab" color="#00DCC2" aria-label="add" onClick={openModal} title="Novo Lancamento">
+                {!modalIsOpen && <Fab className="Fab" color="#00DCC2" aria-label="add" onClick={openModal} title="Novo Lancamento">
                     <AddIcon />
-                </Fab>
+                </Fab>}
             </div>
             <div>
                 {months.map((month, index) => {
@@ -104,8 +103,8 @@ function Overview() {
             </Modal>
 
             {renderTransactions()}
+            <Balance transactions={transactions}></Balance>
         </div>
-
     )
 }
 
