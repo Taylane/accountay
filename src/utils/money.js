@@ -1,3 +1,3 @@
 export function toMoney(value) {
-    return value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+    return (Math.random()*(Math.random()*1000)).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
 }

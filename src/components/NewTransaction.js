@@ -6,7 +6,7 @@ import Button from '../components/elements/Button'
 
 import { apiUrl } from '../env';
 
-import 'bulma/css/bulma.min.css'
+// import 'bulma/css/bulma.min.css'
 import './NewTransaction.css'
 import TextField from './elements/TextField';
 import RadioButton from './elements/RadioButton';

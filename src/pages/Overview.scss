@@ -1,0 +1,37 @@
+.Overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+}
+
+#Div-Body {
+  display: inherit;
+  flex-direction: column;
+  width: 96%;
+  height: 80vh;
+}
+
+#Div-Fab {
+  height: 0;
+}
+
+#Div-Buttons {
+  display: inherit;
+  flex-wrap: wrap;
+}
+
+#Div-Transactions {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.Fab {
+  position: fixed;
+  right: -45vw;
+  bottom: 10vh;
+  z-index: 999;
+}

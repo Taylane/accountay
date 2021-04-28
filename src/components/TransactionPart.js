@@ -1,12 +1,12 @@
 import React from 'react'
 
-import 'bulma/css/bulma.min.css'
+// import 'bulma/css/bulma.min.css'
 import './TransactionPart.css'
 import { toMoney } from '../utils/money'
 
-function TransactionPart({ part, style }) {
+function TransactionPart({ part, className }) {
     return (
-        <div className="TransactionPart" style={style}>
+        <div className={"TransactionPart " + className}>
             <span className="Amount">
                 {toMoney(part.amount)}
             </span>

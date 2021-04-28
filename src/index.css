@@ -1,6 +1,6 @@
 * {
   /* Typography */
-  --main-font: "Slabo 27px", "Roboto";
+  --main-font: "Roboto 27px", "Roboto";
 
   /* Calculation */
   --responsive: calc(
@@ -41,6 +41,12 @@ p {
 
   font-family: "Roboto";
 
+  
+}
+
+button{
+   
+  font-family: "Roboto";
   --max-font: 20;
   --min-font: 14;
   font-size: var(--responsive);
@@ -62,20 +68,17 @@ p {
 
 .App-header {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 
   color: white;
   background-color: #282c34;
 
-  min-height: 2vh;
-  height: 8vh;
-  padding-left: 2vw;
+  padding-left: 3vw; 
+  height:  8vh;
 
   box-shadow: 0 1em 1em -0.125em rgb(10 10 10 / 10%),
   0 0 0 1px rgb(10 10 10 / 2%);
-
 }
 
 .App-link {

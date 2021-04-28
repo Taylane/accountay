@@ -1,22 +1,26 @@
-import React, { useEffect, useState, Fragment } from 'react'
-import './Balance.css'
+import React, { useEffect, useState } from 'react'
+import './Balance.scss'
 import { toMoney } from '../utils/money'
 import { theme } from '../theme'
-
+import Loader from './elements/Loader'
+import { setTimeout } from 'timers';
 
 function Balance({ transactions }) {
-    // const [transactions, setTransactions] = useState([])
-
     const [income, setIncome] = useState(0)
     const [outcome, setOutcome] = useState(0)
     const [total, setTotal] = useState(0)
 
+    const [loading, setLoading] = useState(true)
+
     useEffect(() => {
-        if (transactions == null || transactions.length == 0) return
+        if (transactions == null) {
+            setLoading(true)
+            return
+        }
+        setLoading(true)
 
         let income = 0;
         let outcome = 0;
-
         transactions.map((transaction) => {
             if (transaction.type === 1) outcome += transaction.total
             if (transaction.type === 2) income += transaction.total
@@ -25,29 +29,35 @@ function Balance({ transactions }) {
         setIncome(income)
         setOutcome(outcome)
         setTotal(income - outcome)
-    }, [transactions])
+        setTimeout(() => setLoading(false), 100)
 
-    function formatValue(value) {
-        return toMoney(Math.abs(value));
-    }
+    }, [transactions])
 
     function getColorStyle(value) {
         return { color: value >= 0 ? theme.colors.darkGreen : theme.colors.red };
     }
 
+    function renderValue(value) {
+        if (loading) {
+            return <Loader />;
+        }
+        return toMoney(Math.abs(value));
+    }
+
     return (
         <div className="Balance">
             <div>
-                <h2>Entrada: </h2>
-                <h2 style={getColorStyle(income)}> {formatValue(income)}</h2>
+                <h3>Entrada: </h3>
+                <h3 style={getColorStyle(income)}>{renderValue(income)}</h3>
+
             </div>
             <div>
-                <h2>Saída: </h2>
-                <h2 style={getColorStyle(outcome)}> {formatValue(outcome)}</h2>
+                <h3>Saída: </h3>
+                <h3 style={getColorStyle(outcome)}>{renderValue(outcome)}</h3>
             </div>
             <div>
-                <h2>Balanço: </h2>
-                <h2 style={getColorStyle(total)}> {formatValue(total)}</h2>
+                <h3>Balanço: </h3>
+                <h3 style={getColorStyle(total)}>{renderValue(total)}</h3>
             </div>
         </div>
     )

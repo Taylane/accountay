@@ -1,0 +1,26 @@
+@import "../variables.scss";
+
+.Balance {
+  display: flex;
+  justify-content: space-around;
+
+  color: $text-color;
+  background-color: white;
+
+  box-shadow: 1px 10px 8px 1px #8888886c;
+
+  border-radius: 1rem;
+  padding: 1vw;
+  margin: 0 0.5vw 1vh 0.5vw;
+
+  width: 96%;
+}
+
+.Balance div {
+  display: inherit;
+  flex-direction: column;
+}
+
+.Balance h3 {
+  margin: 0.25rem;
+}

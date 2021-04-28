@@ -1,39 +1,39 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import Modal from 'react-modal';
-import NewTransaction from '../components/NewTransaction';
-import Transaction from '../components/Transaction';
-import Button from '../components/elements/Button'
-
-import { apiUrl } from '../env';
-import './Overview.css'
-import ButtonVanilla from '../components/elements/ButtonVanilla';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+
+import NewTransaction from '../components/NewTransaction';
+import Transaction from '../components/Transaction';
 import Balance from '../components/Balance'
+import ButtonVanilla from '../components/elements/ButtonVanilla';
+import Button from '../components/elements/Button'
+
+import './Overview.scss'
+
+import { apiUrl } from '../env';
 
 const customStyles = {
     content: {
         padding: '0',
-        // margin: 'auto',
-
         borderRadius: '6px',
         boxShadow: "0 0.5em 1em -0.125em rgb(10 10 10 / 10%),0 0 0 1px rgb(10 10 10 / 2%)",
     }
 };
 
 const months = [
-    { name: 'Jan', value: 1 },
-    { name: 'Fev', value: 2 },
-    { name: 'Mar', value: 3 },
-    { name: 'Abr', value: 4 },
-    { name: 'Mai', value: 5 },
-    { name: 'Jun', value: 6 },
-    { name: 'Jul', value: 7 },
-    { name: 'Ago', value: 8 },
-    { name: 'Set', value: 9 },
-    { name: 'Out', value: 10 },
-    { name: 'Nov', value: 11 },
-    { name: 'Dez', value: 12 },
+    { name: 'Jan' },
+    { name: 'Fev' },
+    { name: 'Mar' },
+    { name: 'Abr' },
+    { name: 'Mai' },
+    { name: 'Jun' },
+    { name: 'Jul' },
+    { name: 'Ago' },
+    { name: 'Set' },
+    { name: 'Out' },
+    { name: 'Nov' },
+    { name: 'Dez' },
 ]
 
 function Overview() {
@@ -45,6 +45,17 @@ function Overview() {
         fetchData(monthSelected)
     }, [monthSelected])
 
+    async function fetchData() {
+        let res = await fetch(apiUrl + "/transactions?date_like=2021-" + monthSelected.toString().padStart(2, '0') + '&recurrency_ne=1');
+        let resJson = await res.json();
+
+        res = await fetch(apiUrl + "/transactions?recurrency=1");
+        resJson = [...resJson, ...await res.json()]
+        setTransactions(resJson)
+
+    }
+
+    //Modal//
     function openModal() {
         setIsOpen(true);
     }
@@ -57,52 +68,54 @@ function Overview() {
         setIsOpen(false);
     }
 
-    async function fetchData(month = '') {
-        // ?date_like=2021-04"
-        const res = await fetch(apiUrl + "/transactions?date_like=2021-" + monthSelected.toString().padStart(2, '0'));
-        setTransactions(await res.json())
-    }
-
+    //Render//
     function renderTransactions() {
-        if (transactions == null || transactions.length == 0) return
+        if (transactions == null || transactions.length == 0) return (<h2>Não há transações neste periodo!</h2>)
 
         return (
-            <div className="Transactions">
-                {transactions.map((transaction, index) => <Transaction key={index} transaction={transaction} />)}
-            </div>
+            transactions.map((transaction, index) => <Transaction key={index} transaction={transaction} />)
         )
     }
 
     return (
         <div className="Overview">
-            <div className="Fab-Div">
-                {!modalIsOpen && <Fab className="Fab" color="#00DCC2" aria-label="add" onClick={openModal} title="Novo Lancamento">
-                    <AddIcon />
-                </Fab>}
+            <div id="Div-Body">
+                <div id="Div-Buttons">
+                    {months.map((month, index) => {
+                        index = index + 1;
+                        return (
+                            <ButtonVanilla
+                                key={index}
+                                title={month.name}
+                                onClick={() => setMonthSelected(index)}
+                                className={index === monthSelected ? 'Selected-Button' : ''}
+                            />)
+                    })}
+                </div>
+                <div id="Div-Transactions">
+                    {renderTransactions()}
+                </div>
             </div>
-            <div>
-                {months.map((month, index) => {
-                    index = index + 1;
-                    return <ButtonVanilla
-                        key={index}
-                        title={month.name}
-                        onClick={() => setMonthSelected(index)}
-                        className={index === monthSelected ? 'Selected-Button' : ''}
-                    />
-                })}
+            <div id="Div-Fab">
+                {!modalIsOpen &&
+                    <Fab className="Fab" color="#00DCC2" aria-label="add" onClick={openModal} title="Novo Lancamento">
+                        <AddIcon />
+                    </Fab>
+                }
+                <Fragment>
+                    <Modal
+                        isOpen={modalIsOpen}
+                        onAfterOpen={afterOpenModal}
+                        onRequestClose={closeModal}
+                        contentLabel="Example Modal"
+                        style={customStyles}
+                        ariaHideApp={false}
+                    >
+                        <NewTransaction closeModal={closeModal} />
+                    </Modal>
+                </Fragment>
             </div>
-            <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
-                contentLabel="Example Modal"
-                style={customStyles}
-                ariaHideApp={false}
-            >
-                <NewTransaction closeModal={closeModal} />
-            </Modal>
 
-            {renderTransactions()}
             <Balance transactions={transactions}></Balance>
         </div>
     )

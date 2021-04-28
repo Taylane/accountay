@@ -1,0 +1,55 @@
+@import "../variables.scss";
+
+.Transaction {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  color: $text-color;
+  background-color: $white-background-color;
+
+  // box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+  //   0 0 0 1px rgb(10 10 10 / 2%);
+
+  border-radius: 8px;
+  padding: 1vw;
+  margin: 0 0.5vw 1vh 0.5vw;
+
+  width: 96%;
+}
+
+.Transaction-Body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inherit;
+  justify-items: flex-start;
+  width: 100%;
+  padding-right: 2vw;
+}
+
+.Transaction-Parts {
+  width: 40%;
+}
+
+.Transaction div span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: auto;
+}
+
+.Transaction span:not(:first-child) {
+  padding-left: 0.75vw;
+}
+
+.Transaction span:last-child {
+  padding-left: 0.75vw;
+  padding-right: 0.75vw;
+}
+
+.Income {
+  border-left: 5px solid $green-color;
+}
+
+.Outcome {
+  border-left: 5px solid $red-color;
+}

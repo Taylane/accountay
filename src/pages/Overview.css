@@ -5,6 +5,7 @@
 
   padding: auto;
   text-align: start;
+  height: 100%;
 }
 
 .Fab{
@@ -12,42 +13,26 @@
   left: 40vw;
   top: 78vh;
   z-index: 999;
-
-/* align-self: flex-end;
-justify-self: auto */
 }
-.Fab-Div{
+.Div-Fab{
   height: 0;
+}
+
+.Month-Buttons{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .Transactions{
   overflow-y: scroll;
-  height: 83vh;
-
 }
 
-/* .Overview Button{
-  display: flex;
-  align-self: flex-start;
-  margin: 2vh;
-} */
-
-.Month-Selection{
-  /* display: flex; */
-  /* margin: 0; */
-  /* padding: 0; */
+.Div-Balance{
+  align-self:flex-start; 
 }
 
-
-
-.Month-Buttons{
-	/* display: flex; */
-  /* flex-direction: row; */
-
-  /* margin-top: 3vh */
-}
-
-.Filters{
+/* .Filters{
   display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -57,4 +42,4 @@ justify-self: auto */
 
   padding: 3vh;
   width: 48vw;
-}
+} */
