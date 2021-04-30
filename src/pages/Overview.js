@@ -1,13 +1,16 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import Modal from 'react-modal';
 import Fab from '@material-ui/core/Fab';
+
 import AddIcon from '@material-ui/icons/Add';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import NewTransaction from '../components/NewTransaction';
 import Transaction from '../components/Transaction';
 import Balance from '../components/Balance'
 import ButtonVanilla from '../components/elements/ButtonVanilla';
 import Button from '../components/elements/Button'
+import TransactionsTable from '../components/TransactionsTable'
 
 import './Overview.scss'
 
@@ -68,33 +71,17 @@ function Overview() {
         setIsOpen(false);
     }
 
-    //Render//
-    function renderTransactions() {
-        if (transactions == null || transactions.length == 0) return (<h2>Não há transações neste periodo!</h2>)
-
-        return (
-            transactions.map((transaction, index) => <Transaction key={index} transaction={transaction} />)
-        )
-    }
 
     return (
-        <div className="Overview">
-            <div id="Div-Body">
-                <div id="Div-Buttons">
-                    {months.map((month, index) => {
-                        index = index + 1;
-                        return (
-                            <ButtonVanilla
-                                key={index}
-                                title={month.name}
-                                onClick={() => setMonthSelected(index)}
-                                className={index === monthSelected ? 'Selected-Button' : ''}
-                            />)
-                    })}
+        <Fragment>
+            <div className="Overview">
+                <div>
+                    <span class="headline">Janeiro</span>
+                    <ExpandMoreIcon style={{ width: "3.75rem", height: "4.5rem" }} />
                 </div>
-                <div id="Div-Transactions">
-                    {renderTransactions()}
-                </div>
+                <TransactionsTable transactions={transactions}/>
+                <Balance transactions={transactions}/>
+
             </div>
             <div id="Div-Fab">
                 {!modalIsOpen &&
@@ -115,9 +102,7 @@ function Overview() {
                     </Modal>
                 </Fragment>
             </div>
-
-            <Balance transactions={transactions}></Balance>
-        </div>
+        </Fragment>
     )
 }
 

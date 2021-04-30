@@ -12,6 +12,21 @@ $secundary-color: #5400dc;
 $red-color: #dc001a;
 $green-color: #88dc00;
 
+//Typography
+.headline {
+  font: 3.75rem Roboto;
+  font-weight: 300;
+}
+.body-1 {
+  font: 1rem Roboto normal;
+}
+.body-1-bold {
+  font: 1rem Roboto bold;
+}
+.body-2 {
+  font: 0.875rem Roboto normal;
+}
+
 :export {
   primaryColor: $primary-color;
   redColor: $red-color;

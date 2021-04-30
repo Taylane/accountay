@@ -1,0 +1,33 @@
+@import "../variables.scss";
+
+#Div-Table-Header {
+  display: flex;
+  width: 98%;
+}
+
+#Div-Filter-Transaction {
+  display: inherit;
+  width: 59%;
+  margin-left: 1.5vw;
+}
+
+#Div-Filter-Transaction-Part {
+  display: inherit;
+  width: 39%;
+  // padding-left: 1vw;
+}
+
+#Div-Table-Body {
+  width: 98%;
+  overflow-y: scroll;
+}
+
+.Filter {
+  display: inherit;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Filter p {
+  @extend .body-1;
+}
