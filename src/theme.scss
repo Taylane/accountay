@@ -1,0 +1,77 @@
+$font-family: "Roboto";
+
+//Pallete
+$color-dark-blue: #264653;
+$color-medium-blue: #2f5767;
+$color-light-blue: #4987a0;
+
+$color-yellow: #e9c46a;
+$color-orange: #f4a261;
+
+$color-red: #e76f51;
+$color-green: #2a9d8f;
+
+$color-light-gray: #f4f4f4;
+$color-blue-white: #f8fbfc;
+
+$color-white: #fff;
+$color-black: #000;
+$color-light-black: #4a4a4a;
+
+//Color definitions
+$dark-background-color: $color-dark-blue;
+$light-background-color: $color-blue-white;
+$gray-background-color: $color-light-gray;
+
+$text-color: $color-light-black;
+$white-text-color: $color-white;
+
+$primary-color: $color-light-blue;
+$secundary-color: $color-medium-blue;
+
+//Typography
+.headline-2 {
+  font: 3.75rem Roboto;
+  font-weight: 300;
+  letter-spacing: 0.0313rem;
+}
+.headline-4 {
+  font: 2.125rem Roboto;
+  font-weight: 300;
+  letter-spacing: 0.0156rem;
+}
+.headline-5 {
+  font: 1.5rem Roboto;
+  letter-spacing: 0.0156rem;
+}
+.subtitle {
+  font: 1rem Roboto;
+  font-weight: 400;
+  letter-spacing: 0.0094rem;
+}
+.body {
+  font: 1rem Roboto;
+  font-weight: 400;
+  letter-spacing: 0.0313rem;
+}
+.body-2 {
+  font: 0.875rem Roboto;
+  font-weight: 400;
+  letter-spacing: 0.0156rem;
+}
+.button {
+  font: 0.875rem Roboto;
+  font-weight: 500;
+  letter-spacing: 0.0781rem;
+}
+.caption {
+  font: 0.75rem Roboto;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+}
+
+// :export {
+//   primaryColor: $primary-color;
+//   redColor: $color-red;
+//   greenColor: $color-green;
+// }

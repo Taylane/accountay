@@ -42,14 +42,14 @@ const months = [
 function Overview() {
     const [transactions, setTransactions] = useState(null)
     const [modalIsOpen, setIsOpen] = React.useState(false);
-    const [monthSelected, setMonthSelected] = useState(new Date().getMonth() + 1);
+    const [dateSelected, setdateSelected] = useState(new Date());
 
     useEffect(() => {
-        fetchData(monthSelected)
-    }, [monthSelected])
+        fetchData(dateSelected)
+    }, [dateSelected])
 
     async function fetchData() {
-        let res = await fetch(apiUrl + "/transactions?date_like=2021-" + monthSelected.toString().padStart(2, '0') + '&recurrency_ne=1');
+        let res = await fetch(apiUrl + "/transactions?date_like=2021-" + dateSelected.getMonth().toString().padStart(2, '0') + '&recurrency_ne=1');
         let resJson = await res.json();
 
         res = await fetch(apiUrl + "/transactions?recurrency=1");
@@ -76,11 +76,12 @@ function Overview() {
         <Fragment>
             <div className="Overview">
                 <div id="Div-Page-Header">
-                    <span class="headline">Janeiro</span>
-                    <ExpandMoreIcon style={{ width: "3.75rem", height: "4.5rem" }} />
+                    <span className="Page-Header-Item">{dateSelected.toLocaleDateString('default', { month: 'long' })}</span>
+                    <span className="Page-Header-Item">, {dateSelected.getFullYear()}</span>
+                    <ExpandMoreIcon className="Page-Header-Item" style={{ width: "2.2188rem", height: "2.125rem" }} />
                 </div>
-                <TransactionsTable transactions={transactions}/>
-                <Balance transactions={transactions}/>
+                <TransactionsTable transactions={transactions} />
+                <Balance transactions={transactions} />
 
             </div>
             <div id="Div-Fab">

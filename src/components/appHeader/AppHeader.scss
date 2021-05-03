@@ -1,0 +1,33 @@
+@import "../../theme.scss";
+
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  color: $white-text-color;
+  background-color: $dark-background-color;
+
+  padding-left: 3.75rem;
+  height: 4.375rem;
+}
+
+.App-link {
+  @extend .headline-5;
+
+  color: $white-text-color;
+  text-decoration: none;
+
+  padding: 0.0313rem 1.5625rem;
+}
+
+.App-link:hover {
+  color: $white-text-color;
+  background-color: $color-medium-blue;
+  text-decoration: underline;
+  border-radius: 6px;
+}
+
+.App-link:first-of-type {
+  margin-left: 2vh;
+}

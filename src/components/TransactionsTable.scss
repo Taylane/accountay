@@ -1,4 +1,4 @@
-@import "../variables.scss";
+@import "../theme.scss";
 
 #Div-Table-Header {
   display: flex;
@@ -29,5 +29,5 @@
 }
 
 .Filter p {
-  @extend .body-1;
+  @extend .body;
 }

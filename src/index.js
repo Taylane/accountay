@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 import App from './App';
-import AppHeader from './components/AppHeader'
+import AppHeader from './components/appHeader/AppHeader'
 
 import 'typeface-roboto'
 import './index.scss';

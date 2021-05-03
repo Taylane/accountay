@@ -1,4 +1,4 @@
-@import "../variables.scss";
+@import "../theme.scss";
 
 .Overview {
   display: flex;
@@ -13,39 +13,55 @@
 #Div-Table-Transactions {
   width: 100%;
 }
+
 #Div-Page-Header {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 
-  padding-top: 2vh;
-  // align-content: center;
-  // font: $headline;
+  margin-top: 1.875rem;
+  margin-left: 4.0625rem;
 }
 
-#Div-Body {
-  display: inherit;
-  flex-direction: column;
-  width: 96%;
-  height: 80vh;
+.Page-Header-Item {
+  @extend .headline-4;
+  text-align: center;
+  text-justify: auto;
+
+  text-transform: capitalize;
+  padding-bottom: 0.875rem;
 }
 
-#Div-Fab {
-  height: 0;
+#Div-Page-Header span:first-of-type {
+  border-bottom: 5px solid #264653;
 }
 
-#Div-Buttons {
-  display: inherit;
-  flex-wrap: wrap;
-}
+// #Div-Body {
+//   display: inherit;
+//   flex-direction: column;
+//   width: 96%;
+//   height: 80vh;
+// }
 
-#Div-Transactions {
-  overflow-y: scroll;
-  height: 100%;
-}
+// #Div-Fab {
+//   height: 0;
+// }
 
-.Fab {
-  position: fixed;
-  right: -45vw;
-  bottom: 10vh;
-  z-index: 999;
-}
+// #Div-Buttons {
+//   display: inherit;
+//   flex-wrap: wrap;
+// }
+
+// #Div-Transactions {
+//   overflow-y: scroll;
+//   height: 100%;
+// }
+
+// .Fab {
+//   position: fixed;
+//   right: -45vw;
+//   bottom: 10vh;
+//   z-index: 999;
+// }

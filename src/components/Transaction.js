@@ -15,10 +15,10 @@ function Transaction({ transaction }) {
     return (
         <div className={"Transaction " + getTransactionClassName()} >
             <div className="Transaction-Body">
-                <span className="body-1" style={{ width:"10%", textAlign:"start" }}>{new Date(transaction.date).getDay().toString().padStart(2, '0')}</span>
-                <span className="body-1" style={{ width:"20%", textAlign:"start" }}>{getRecurrencyName(transaction.recurrency)}</span>
-                <span className="body-1" style={{ width:"20%", textAlign:"start" }}>{toMoney(transaction.total)}</span>
-                <span className="body-1" style={{ width:"50%", textAlign:"start" }}>{transaction.name}</span>
+                <span className="body" style={{ width:"10%", textAlign:"start" }}>{new Date(transaction.date).getDay().toString().padStart(2, '0')}</span>
+                <span className="body" style={{ width:"20%", textAlign:"start" }}>{getRecurrencyName(transaction.recurrency)}</span>
+                <span className="body" style={{ width:"20%", textAlign:"start" }}>{toMoney(transaction.total)}</span>
+                <span className="body" style={{ width:"50%", textAlign:"start" }}>{transaction.name}</span>
             </div>
             <div className="Transaction-Parts">
                 {transaction && transaction.parts.map((part, index) => <TransactionPart key={index} part={part} className={getTransactionClassName()} />)}

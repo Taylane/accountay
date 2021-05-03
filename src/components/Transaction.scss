@@ -1,4 +1,4 @@
-@import "../variables.scss";
+@import "../theme.scss";
 
 .Transaction {
   display: flex;
@@ -6,7 +6,7 @@
   // justify-content: space-between;
 
   color: $text-color;
-  background-color: $white-background-color;
+  background-color: $light-background-color;
 
   // box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
   //   0 0 0 1px rgb(10 10 10 / 2%);
@@ -49,9 +49,9 @@
 // }
 
 .Income {
-  border-left: 5px solid $green-color;
+  border-left: 5px solid $color-green;
 }
 
 .Outcome {
-  border-left: 5px solid $red-color;
+  border-left: 5px solid $color-red;
 }
