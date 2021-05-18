@@ -1,0 +1,21 @@
+@import "../../theme.scss";
+
+.Button {
+  @extend .button;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: inherit;
+
+  //   width: 160px;
+  //   height: 44px;
+  //   left: 789px;
+  //   top: 683px;
+  color: $primary-color;
+
+  border: 1px solid $primary-color;
+  box-sizing: border-box;
+  border-radius: 4px;
+}

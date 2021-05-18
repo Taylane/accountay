@@ -1,17 +1,24 @@
 import React from 'react'
 
 // import 'bulma/css/bulma.min.css'
-import './TransactionPart.css'
+import './TransactionPart.scss'
 import { toMoney } from '../utils/money'
+import { Fragment } from 'react'
 
 function TransactionPart({ part, className }) {
     return (
-        <div className={"TransactionPart " + className}>
-            <span className="Amount" style={{width:"30%"}}>
-                {toMoney(part.amount)}
-            </span>
-            <span style={{width:"70%"}}>{part.name}</span>
-        </div>
+        <Fragment className="Transaction-Part">
+            <td
+                className={className}>
+                <span className="Amount">
+                    {toMoney(part.amount)}
+                </span>
+
+            </td>
+            <td>
+                <span>{part.name}</span>
+            </td>
+        </Fragment>
     )
 }
 

@@ -5,54 +5,51 @@ import Transaction from '../components/Transaction';
 
 
 import './TransactionsTable.scss'
+import { traverseTwoPhase } from 'react-dom/cjs/react-dom-test-utils.development';
 
+const headers = ['Dia',
+    'Tipo',
+    'Valor Total',
+    'Nome',
+    ['Valor', 'Pessoa']];
 
 function TransactionsTable({ transactions }) {
-    function renderTransactions() {
-        if (transactions == null || transactions.length == 0) return (<h2>Não há transações neste periodo!</h2>)
+    if (transactions == null || transactions.length === 0) return (<p className="headline-5">Não há transações neste periodo!</p>)
 
+    function renderTransactions() {
         return (
             transactions.map((transaction, index) => <Transaction key={index} transaction={transaction} />)
         )
     }
 
     return (
-        <Fragment>
-            <div id="Div-Table-Header">
-                <div id="Div-Filter-Transaction">
-                    <div className="Filter" style={{ width: "10%" }}>
-                        <p  >Dia</p>
-                        <ExpandMoreIcon fontSize="small" />
-                    </div>
-                    <div className="Filter" style={{ width: "20%" }}>
-                        <p  >Tipo</p>
-                        <ExpandMoreIcon fontSize="small" />
-                    </div>
-                    <div className="Filter" style={{ width: "20%" }}>
-                        <p  >Valor Total</p>
-                        <ExpandMoreIcon fontSize="small" />
-                    </div>
-                    <div className="Filter" style={{ width: "50%" }}>
-                        <p  >Nome</p>
-                        <ExpandMoreIcon fontSize="small" />
-                    </div>
-                </div>
-                <div id="Div-Filter-Transaction-Part" >
-                    <div className="Filter" style={{ width: "30%" }}>
-                        <p  >Valor</p>
-                        <ExpandMoreIcon fontSize="small" />
-                    </div>
-                    <div className="Filter" style={{ width: "70%" }}>
-                        <p  >Pessoa</p>
-                        <ExpandMoreIcon fontSize="small" />
-                    </div>
-                </div>
-            </div>
-            <div id="Div-Table-Body">
+        <table className="Transaction-Table">
+            <thead rowp="2">
+                <tr>
+                    <th>
+                        <p>&nbsp;Dia<ExpandMoreIcon fontSize="small" /></p>
+                    </th>
+                    <th>
+                        <p>Tipo<ExpandMoreIcon fontSize="small" /></p>
+                    </th>
+                    <th>
+                        <p>Valor Total<ExpandMoreIcon fontSize="small" /></p>
+                    </th>
+                    <th>
+                        <p>Nome<ExpandMoreIcon fontSize="small" /></p>
+                    </th>
+                    <th>
+                        <p>Valor<ExpandMoreIcon fontSize="small" /></p>
+                    </th>
+                    <th>
+                        <p>Pessoa<ExpandMoreIcon fontSize="small" /></p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="Transactions">
                 {renderTransactions()}
-            </div>
-
-        </Fragment>
+            </tbody>
+        </table>
     )
 }
 

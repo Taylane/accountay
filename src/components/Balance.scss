@@ -3,24 +3,38 @@
 .Balance {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 
   color: $text-color;
-  background-color: white;
-
-  box-shadow: 1px 10px 8px 1px #8888886c;
+  background-color: $light-background-color;
+  // background-color: red;
+  // box-shadow: 1px 10px 8px 1px #8888886c;
 
   border-radius: 1rem;
-  padding: 1vw;
-  margin: 1vh 0.5vw 1vh 0.5vw;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  width: 96%;
+  // padding: 1vw;
+  // margin: 1vh 0.5vw 1vh 0.5vw;
+
+  // margin: 0 80px 1.25rem 80px;
+  // width: 62.125rem;
 }
 
 .Balance div {
-  display: inherit;
+  display: flex;
   flex-direction: column;
+
+  padding: 0.9375rem;
 }
 
 .Balance h3 {
-  margin: 0.25rem;
+  margin: 0;
+}
+
+.positive {
+  color: $color-green;
+}
+
+.negative{
+  color: $color-red;
 }

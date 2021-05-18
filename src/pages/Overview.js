@@ -80,11 +80,14 @@ function Overview() {
                     <span className="Page-Header-Item">, {dateSelected.getFullYear()}</span>
                     <ExpandMoreIcon className="Page-Header-Item" style={{ width: "2.2188rem", height: "2.125rem" }} />
                 </div>
-                <TransactionsTable transactions={transactions} />
-                <Balance transactions={transactions} />
-
+                <div id="Div-Page-Content">
+                    <TransactionsTable transactions={transactions} />
+                </div>
+                <div id="Div-Page-Footer">
+                    <Balance transactions={transactions} />
+                </div>
             </div>
-            <div id="Div-Fab">
+            {/* <div id="Div-Fab">
                 {!modalIsOpen &&
                     <Fab className="Fab" color="#00DCC2" aria-label="add" onClick={openModal} title="Novo Lancamento">
                         <AddIcon />
@@ -102,8 +105,8 @@ function Overview() {
                         <NewTransaction closeModal={closeModal} />
                     </Modal>
                 </Fragment>
-            </div>
-        </Fragment>
+            </div> */}
+        </Fragment >
     )
 }
 

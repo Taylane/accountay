@@ -1,33 +1,22 @@
 @import "../theme.scss";
 
-#Div-Table-Header {
-  display: flex;
-  width: 98%;
+.Transaction-Table {
+  width: auto;
+
+  border-collapse: separate;
+  border-spacing: 0 0.625rem;
+  border-radius: 1rem;
 }
 
-#Div-Filter-Transaction {
-  display: inherit;
-  width: 59%;
-  margin-left: 1.5vw;
+th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  background-color: $gray-background-color;
 }
 
-#Div-Filter-Transaction-Part {
-  display: inherit;
-  width: 39%;
-  // padding-left: 1vw;
-}
-
-#Div-Table-Body {
-  width: 98%;
-  overflow-y: scroll;
-}
-
-.Filter {
-  display: inherit;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.Filter p {
-  @extend .body;
+thead {
+  background-color: $gray-background-color;
 }

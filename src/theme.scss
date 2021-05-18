@@ -1,5 +1,29 @@
 $font-family: "Roboto";
 
+html {
+  font-size: 16px;
+}
+@media (max-width: 900px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+// @function calculateRem($size) {
+//   $remSize: $size / 16px;
+//   @return #{$remSize}rem;
+
+// }
+// @mixin fontSize($size) {
+//   font-size: $size; //Fallback in px
+//   font-size: calculateRem($size);
+// }
+
 //Pallete
 $color-dark-blue: #264653;
 $color-medium-blue: #2f5767;
@@ -31,47 +55,57 @@ $secundary-color: $color-medium-blue;
 
 //Typography
 .headline-2 {
-  font: 3.75rem Roboto;
+  font: 3.75rem $font-family;
   font-weight: 300;
   letter-spacing: 0.0313rem;
 }
 .headline-4 {
-  font: 2.125rem Roboto;
+  font: 2.125rem $font-family;
   font-weight: 300;
   letter-spacing: 0.0156rem;
 }
 .headline-5 {
-  font: 1.5rem Roboto;
+  font: 1.5rem $font-family;
   letter-spacing: 0.0156rem;
 }
 .subtitle {
-  font: 1rem Roboto;
+  font: 1rem $font-family;
   font-weight: 400;
   letter-spacing: 0.0094rem;
 }
 .body {
-  font: 1rem Roboto;
+  font: 1rem $font-family;
   font-weight: 400;
   letter-spacing: 0.0313rem;
 }
 .body-2 {
-  font: 0.875rem Roboto;
+  font: 0.875rem $font-family;
   font-weight: 400;
   letter-spacing: 0.0156rem;
 }
 .button {
-  font: 0.875rem Roboto;
+  font: 0.875rem $font-family;
   font-weight: 500;
   letter-spacing: 0.0781rem;
 }
 .caption {
-  font: 0.75rem Roboto;
+  font: 0.75rem $font-family;
   font-weight: 400;
   letter-spacing: 0.025rem;
 }
 
-// :export {
-//   primaryColor: $primary-color;
-//   redColor: $color-red;
-//   greenColor: $color-green;
-// }
+@media (max-width: 600px) {
+  .headline-2 {
+    font: 2rem $font-family;
+    font-weight: 300;
+    letter-spacing: 0.0313rem;
+  }
+  .headline-5 {
+    font: 1rem $font-family;
+    letter-spacing: 0.0156rem;
+  }
+}
+
+:export {
+  primary: $primary-color;
+}

@@ -1,4 +1,4 @@
-@import "../../theme.scss";
+@import "../theme.scss";
 
 .App-header {
   display: flex;
@@ -8,8 +8,12 @@
   color: $white-text-color;
   background-color: $dark-background-color;
 
-  padding-left: 3.75rem;
-  height: 4.375rem;
+  padding-left: 2vw;
+  height: 8vh;
+}
+
+.App-header p {
+  @extend .headline-2;
 }
 
 .App-link {
@@ -18,7 +22,7 @@
   color: $white-text-color;
   text-decoration: none;
 
-  padding: 0.0313rem 1.5625rem;
+  padding: 1vw;
 }
 
 .App-link:hover {
