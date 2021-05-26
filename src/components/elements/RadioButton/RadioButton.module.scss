@@ -1,0 +1,36 @@
+@import "../../../theme.scss";
+
+.container {
+  color: $text-color;
+  padding-top: 10px
+}
+.title {
+  @extend .body;
+
+  color: $text-color;
+  margin: 0 0 20px;
+}
+
+.radio {
+  @extend .body;
+
+  display: flex;
+  justify-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 24px;
+
+  padding-top: 6px;
+}
+
+.input {
+  margin: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 6px;
+}
+
+.label{
+  color: $text-color;
+
+}

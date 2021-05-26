@@ -1,0 +1,50 @@
+@import "../../../theme.scss";
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.moneyInput {
+  display: flex;
+  flex-direction: column-reverse;
+  height: fit-content;
+}
+
+.label {
+  @extend .subtitle;
+
+  color: $text-color;
+  transform: translateY(+50%) scale(0.9);
+  transition: 0.1s ease-out;
+  background-color: $light-background-color;
+
+  padding-left: 1rem;
+  width: fit-content;
+
+  margin-left: 0.75rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.input {
+  font-size: 1rem;
+  outline: none;
+
+  color: $text-color;
+  border: 1px solid $text-color;
+  border-radius: 5px;
+  transition: 0.1s ease-out;
+  background-color: inherit;
+
+  padding: 1rem 0.75rem 1rem 1rem;
+}
+
+.input:focus {
+  border-color: $secundary-color;
+}
