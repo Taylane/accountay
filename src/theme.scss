@@ -61,7 +61,7 @@ $secundary-color: $color-medium-blue;
 }
 .headline-4 {
   font: 2.125rem $font-family;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.0156rem;
 }
 .headline-5 {
@@ -93,7 +93,6 @@ $secundary-color: $color-medium-blue;
   font-weight: 400;
   letter-spacing: 0.025rem;
 }
-
 @media (max-width: 600px) {
   .headline-2 {
     font: 2rem $font-family;

@@ -3,10 +3,10 @@ import "./Button.scss";
 // import Button from "@material-ui/core/Button";
 // import { primary } from "../../theme.scss";
 
-function Button({ onClick, title, children }) {
+function Button({ onClick, title, children, variant }) {
   return (
     <Fragment>
-      <button className="Button" onClick={onClick}>
+      <button className={"Button " + variant} onClick={onClick}>
         {title}
         {children}
       </button>

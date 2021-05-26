@@ -22,7 +22,7 @@ const formFields = {
   recurrencesTypes: [
     { value: 1, label: "Mensal" },
     { value: 2, label: "Único" },
-    { value: 3, label: "Parcela" },
+    // { value: 3, label: "Parcela" }
   ],
 };
 
@@ -34,7 +34,6 @@ function NewTransaction({ closeModal }) {
     type: 1,
     recurrency: 1,
     date: "",
-    installments: 1,
   });
   const [personData, setPersonData] = useState([]);
 
@@ -75,7 +74,6 @@ function NewTransaction({ closeModal }) {
   }
 
   function handleFormChange(key, value) {
-    console.log(formData.recurrency);
     setFormData({ ...formData, [key]: value });
   }
 
@@ -90,8 +88,8 @@ function NewTransaction({ closeModal }) {
         <p>Nova Transação</p>
       </header>
       <div className={styles.form}>
-        <p className="headline-5">Informações Gerais:</p>
-        <div className={styles.informations}>
+        <p className="headline-5">Informações</p>
+        <div className="Transaction-TextField">
           <TextField
             label="Identificador"
             value={formData.name}
@@ -104,19 +102,13 @@ function NewTransaction({ closeModal }) {
             onChange={(value) => handleFormChange("total", value)}
             required
           />
-          <RadioButton
-            options={formFields.transactionTypes}
-            label="Tipo de movimento:"
-            value={formData.type}
-            onChange={(value) => handleFormChange("type", value)}
-            required
-          />
+        </div>
+        <div className="Selects">
           <DatePicker
             label="Data"
             value={formData.date}
             onChange={(value) => handleFormChange("date", value)}
-          />
-
+          ></DatePicker>
           <Select
             options={formFields.recurrencesTypes}
             label="Recorrencia:"
@@ -124,19 +116,17 @@ function NewTransaction({ closeModal }) {
             onChange={(value) => handleFormChange("recurrency", value)}
             required
           />
-
-          {formData.recurrency == 3 && (
-            <TextField
-              label="Quantidade de Parcelas"
-              value={formData.installments}
-              onChange={(value) => handleFormChange("installments", value)}
-              required
-            />
-          )}
+          <RadioButton
+            options={formFields.transactionTypes}
+            label="Tipo de movimento:"
+            value={formData.type}
+            onChange={(value) => handleFormChange("type", value)}
+            required
+          />
         </div>
         <div>
-          <p className="headline-5">Pessoas:</p>
-          <div className={styles.persons}>
+          <p className="headline-5">Pessoas</p>
+          <div className="Persons">
             {persons &&
               personData &&
               persons.map((person, index) => (

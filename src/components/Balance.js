@@ -59,7 +59,7 @@ function Balance({ transactions }) {
         <h3>Balanço: </h3>
         <h3 className={getColorclassName(total)}>{renderValue(total)}</h3>
       </div>
-      <Button title="Ver Detalhes">
+      <Button variant="Outlined" title="Ver Detalhes">
         <ExpandMoreIcon fontSize="small" />
       </Button>
     </div>

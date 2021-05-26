@@ -1,0 +1,152 @@
+@import "../theme.scss";
+
+.newTransaction {
+  display: flex;
+  background-color: $light-background-color;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  @extend .headline-4;
+
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $dark-background-color;
+  color: $white-text-color;
+
+  height: 84px;
+}
+
+// .Transaction-Header {
+//   color: white;
+//   background-color: #282c34;
+
+//   height: 6vh;
+//   border-bottom: 5px solid gray;
+//   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+// }
+
+// .Transaction-TextField {
+//   display: flex;
+//   justify-content: space-evenly;
+//   flex-wrap: wrap;
+// }
+
+// .Transaction-Form {
+//   display: flex;
+//   flex-direction: column;
+//   padding: 1vh 4vw 1vh 4vw;
+// }
+
+// .Selects {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-around;
+//   /* align-items: center; */
+//   margin-top: 4vh;
+// }
+
+// .Persons {
+//   display: flex;
+//   justify-content: space-around;
+//   flex-wrap: wrap;
+// }
+
+// .Person-Label {
+//   display: flex;
+//   flex-direction: column;
+//   /* align-items: center;
+//   justify-content: center;
+//   align-content: center;
+//   justify-items: center;
+//   text-justify: center;
+//   text-align: center; */
+
+//   font-size: 3vh;
+// }
+// .Action-Buttons {
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: flex-end;
+//   /* justig-self: flex-end; */
+//   height: 100%;
+// }
+
+// .Action-Buttons Button {
+//   margin: 0 2vw 2vw 0;
+// }
+
+// /*
+
+// .Overall-Form {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: wrap;
+// }
+
+// .Selects {
+//   display: flex;
+// }
+// .Action-Buttons {
+//   width: 100%;
+// } */
+.form {
+  padding-left: 30px;
+  padding-right: 30px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  color: $text-color;
+  background-color: $gray-background-color;
+
+  border-radius: 1rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 15px;
+  padding: 15px;
+}
+
+.footer h3 {
+  margin: 0;
+}
+// .Footer div {
+//   display: flex;
+//   flex-direction: column;
+
+//   // padding: 0.9375rem;
+// }
+
+.actionButtons {
+  display: inherit;
+}
+.actionButtons button {
+  margin: 5px;
+}
+.informations {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+
+.informations > * {
+  margin-right: 0.9375rem;
+}
+
+.persons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.persons > * {
+  margin-right: 0.9375rem;
+  margin-bottom: 0.9375rem;
+}

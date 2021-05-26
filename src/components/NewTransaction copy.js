@@ -12,7 +12,6 @@ import TextField from "./elements/TextField";
 import RadioButton from "./elements/RadioButton";
 import Select from "./elements/Select";
 import DatePicker from "./elements/DatePicker";
-import MoneyInput from "./elements/MoneyInput";
 
 const formFields = {
   transactionTypes: [
@@ -22,7 +21,7 @@ const formFields = {
   recurrencesTypes: [
     { value: 1, label: "Mensal" },
     { value: 2, label: "Único" },
-    { value: 3, label: "Parcela" },
+    // { value: 3, label: "Parcela" }
   ],
 };
 
@@ -34,7 +33,6 @@ function NewTransaction({ closeModal }) {
     type: 1,
     recurrency: 1,
     date: "",
-    installments: 1,
   });
   const [personData, setPersonData] = useState([]);
 
@@ -75,7 +73,6 @@ function NewTransaction({ closeModal }) {
   }
 
   function handleFormChange(key, value) {
-    console.log(formData.recurrency);
     setFormData({ ...formData, [key]: value });
   }
 
@@ -90,18 +87,34 @@ function NewTransaction({ closeModal }) {
         <p>Nova Transação</p>
       </header>
       <div className={styles.form}>
-        <p className="headline-5">Informações Gerais:</p>
-        <div className={styles.informations}>
+        <p className="headline-5">Informações</p>
+        <div className="Transaction-TextField">
           <TextField
             label="Identificador"
             value={formData.name}
             onChange={(value) => handleFormChange("name", value)}
             required
           />
-          <MoneyInput
+          <TextField
             label="Valor Total"
             value={formData.total}
-            onChange={(value) => handleFormChange("total", value)}
+            onChange={(value) => handleFormChange("total", Number(value))}
+            type="number"
+            style={{ width: "15vw" }}
+            required
+          />
+        </div>
+        <div className="Selects">
+          <DatePicker
+            label="Data"
+            value={formData.date}
+            onChange={(value) => handleFormChange("date", value)}
+          ></DatePicker>
+          <Select
+            options={formFields.recurrencesTypes}
+            label="Recorrencia:"
+            value={formData.recurrency}
+            onChange={(value) => handleFormChange("recurrency", value)}
             required
           />
           <RadioButton
@@ -111,32 +124,10 @@ function NewTransaction({ closeModal }) {
             onChange={(value) => handleFormChange("type", value)}
             required
           />
-          <DatePicker
-            label="Data"
-            value={formData.date}
-            onChange={(value) => handleFormChange("date", value)}
-          />
-
-          <Select
-            options={formFields.recurrencesTypes}
-            label="Recorrencia:"
-            value={formData.recurrency}
-            onChange={(value) => handleFormChange("recurrency", value)}
-            required
-          />
-
-          {formData.recurrency == 3 && (
-            <TextField
-              label="Quantidade de Parcelas"
-              value={formData.installments}
-              onChange={(value) => handleFormChange("installments", value)}
-              required
-            />
-          )}
         </div>
         <div>
-          <p className="headline-5">Pessoas:</p>
-          <div className={styles.persons}>
+          <p className="headline-5">Pessoas</p>
+          <div className="Persons">
             {persons &&
               personData &&
               persons.map((person, index) => (
@@ -145,10 +136,13 @@ function NewTransaction({ closeModal }) {
                   key={index}
                   htmlFor={person.name}
                 >
-                  <MoneyInput
-                    label={person.name}
-                    value={personData[person.id]}
+                  {person.name}
+                  <TextField
+                    label={"Valor por pessoa"}
+                    // value={personData[person.id].name}
                     onChange={(value) => handlePersonFormChange(person, value)}
+                    // type="number"
+                    pattern="^\d*(\.\d{0,2})?$"
                   />
                 </label>
               ))}
