@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
-import Input from "../components/elements/Input";
 import Button from "../components/elements/Button";
 
 import { apiUrl } from "../env";
 
 // import 'bulma/css/bulma.min.css'
 import styles from "./NewTransaction.module.scss";
-import TextField from "./elements/TextField";
-import RadioButton from "./elements/RadioButton";
+import TextField from "./elements/TextField/TextField";
+import RadioButton from "./elements/RadioButton/RadioButton";
 import Select from "./elements/Select";
-import DatePicker from "./elements/DatePicker";
-import MoneyInput from "./elements/MoneyInput";
+import DatePicker from "./elements/DatePicker/DatePicker";
+import MoneyInput from "./elements/MoneyInput/MoneyInput";
 
 const formFields = {
   transactionTypes: [
@@ -33,7 +32,7 @@ function NewTransaction({ closeModal }) {
     total: "",
     type: 1,
     recurrency: 1,
-    date: "",
+    date: new Date().toISOString().split("T")[0],
     installments: 1,
   });
   const [personData, setPersonData] = useState([]);
@@ -75,7 +74,7 @@ function NewTransaction({ closeModal }) {
   }
 
   function handleFormChange(key, value) {
-    console.log(formData.recurrency);
+    console.log(formData);
     setFormData({ ...formData, [key]: value });
   }
 

@@ -9,7 +9,7 @@ import './Select.css';
 
 function Select({ options, label, value, onChange, ...props }) {
     return (
-        <FormControl {...props} className="Select">
+        <FormControl {...props} className="Select" style={{ marginTop: "10px" , marginRight:"0.9375rem"}}>
             <InputLabel id={label}>{label}</InputLabel>
             <MuiSelect
                 labelId={label}
