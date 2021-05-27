@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-
-import Button from "../components/elements/Button";
-
+import styles from "./NewTransaction.module.scss";
 import { apiUrl } from "../env";
 
-// import 'bulma/css/bulma.min.css'
-import styles from "./NewTransaction.module.scss";
 import TextField from "./elements/TextField/TextField";
 import RadioButton from "./elements/RadioButton/RadioButton";
-import Select from "./elements/Select";
+import Select from "./elements/Select/Select";
 import DatePicker from "./elements/DatePicker/DatePicker";
 import MoneyInput from "./elements/MoneyInput/MoneyInput";
+import NewTransactionFooter from "./NewTransactionFooter/NewTransactionFooter";
 
 const formFields = {
   transactionTypes: [
@@ -35,15 +31,15 @@ function NewTransaction({ closeModal }) {
     date: new Date().toISOString().split("T")[0],
     installments: 1,
   });
-  const [personData, setPersonData] = useState([]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   async function fetchData() {
-    const res = await fetch(apiUrl + "/persons");
-    setPersons(await res.json());
+    const res = await (await fetch(apiUrl + "/persons")).json();
+
+    setPersons(res.map((person) => ({ ...person, amount: "" })));
   }
 
   async function postData(body) {
@@ -64,27 +60,33 @@ function NewTransaction({ closeModal }) {
 
     const body = {
       ...formData,
-      parts: personData.filter((person) => person.amount !== 0),
+      parts: persons.filter(
+        (person) => person.amount !== 0 && person.amount !== ""
+      ),
     };
-    console.log(body);
-    const res = await postData(body);
+    // const res = await postData(body);
     // if (res.status === 201) {
     //     closeModal();
     // }
   }
 
   function handleFormChange(key, value) {
-    console.log(formData);
     setFormData({ ...formData, [key]: value });
   }
 
   function handlePersonFormChange(person, value) {
-    personData[person.id] = { ...person, amount: Number(value) };
-    setPersonData(personData);
+    setPersons(
+      persons.map((innerPerson) => {
+        if (innerPerson.id == person.id) {
+          innerPerson.amount = value;
+        }
+        return innerPerson;
+      })
+    );
   }
 
   return (
-    <form className={styles.newTransaction}>
+    <form className={styles.newTransaction} id="NewTransactionForm">
       <header className={styles.header}>
         <p>Nova Transação</p>
       </header>
@@ -124,61 +126,45 @@ function NewTransaction({ closeModal }) {
             required
           />
 
-          {formData.recurrency == 3 && (
-            <TextField
-              label="Quantidade de Parcelas"
-              value={formData.installments}
-              onChange={(value) => handleFormChange("installments", value)}
-              required
-            />
-          )}
+          <TextField
+            label="Quantidade de Parcelas"
+            value={formData.installments}
+            onChange={(value) => handleFormChange("installments", value)}
+            required
+            style={{ visibility: formData.recurrency == 3 ? "" : "hidden" }}
+          />
         </div>
+
         <div>
           <p className="headline-5">Pessoas:</p>
           <div className={styles.persons}>
             {persons &&
-              personData &&
-              persons.map((person, index) => (
-                <label
-                  className="Person-Label"
-                  key={index}
-                  htmlFor={person.name}
-                >
-                  <MoneyInput
-                    label={person.name}
-                    value={personData[person.id]}
-                    onChange={(value) => handlePersonFormChange(person, value)}
-                  />
-                </label>
-              ))}
+              persons.map((person, index) => {
+                return (
+                  <label
+                    className="Person-Label"
+                    key={index}
+                    htmlFor={person.name}
+                  >
+                    <MoneyInput
+                      label={person.name}
+                      value={person.amount}
+                      onChange={(value) =>
+                        handlePersonFormChange(person, value)
+                      }
+                    />
+                  </label>
+                );
+              })}
           </div>
         </div>
       </div>
-      <div className={styles.footer}>
-        <div>
-          <h3>Total: </h3>
-          <h3>R$ 10,00</h3>
-        </div>
-        <div>
-          <h3>Partes: </h3>
-          <h3>R$ 10,00</h3>
-        </div>
-        <div>
-          <h3>Diferença: </h3>
-          <h3>R$ 10,00</h3>
-        </div>
-        <div className={styles.actionButtons}>
-          <Button
-            variant="Outlined"
-            title="Cancelar"
-            onClick={(event) => {
-              event.preventDefault();
-              closeModal();
-            }}
-          />
-          <Button variant="Primary" title="Gravar" onClick={submitForm} />
-        </div>
-      </div>
+      <NewTransactionFooter
+        formData={formData}
+        personData={persons}
+        closeModal={closeModal}
+        submitForm={submitForm}
+      />
     </form>
   );
 }

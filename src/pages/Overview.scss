@@ -27,9 +27,10 @@
   height: auto;
   width: auto;
 
-  margin-left: 4.0625rem;
-  margin-right: 4.0625rem;
-
+  margin: 0 60px;
+  @media (max-width: 420px) {
+    margin: 0 15px;
+  }
   overflow-y: scroll;
 }
 
@@ -50,7 +51,7 @@
 }
 
 #Month-Selector :first-child {
-  border-bottom: solid 5px $secundary-color;
+  border-bottom: solid 0.3125rem $secundary-color;
 }
 #Month-Selector {
   display: flex;

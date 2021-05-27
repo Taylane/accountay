@@ -18,18 +18,17 @@ import { apiUrl } from "../env";
 
 const customStyles = {
   content: {
-    // position:"static",
     margin: "auto",
     height: "fit-content",
     width: "fit-content",
     maxHeight: "95%",
-    maxWidth: "80%",
+    maxWidth: "85%",
     padding: "0",
     borderRadius: "6px",
     boxShadow:
       "0 0.5em 1em -0.125em rgb(10 10 10 / 10%),0 0 0 1px rgb(10 10 10 / 2%)",
     border: "none",
-    overflowX: "none",
+    overflow: "none",
   },
   overlay: {
     background: "rgb(0, 0, 0, 0.65)",

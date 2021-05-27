@@ -47,8 +47,8 @@ p {
 button{
    
   font-family: "Roboto";
-  --max-font: 20;
-  --min-font: 14;
+  --max-font: 3vw;
+  --min-font: 16;
   font-size: var(--responsive);
 }
 

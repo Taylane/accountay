@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import 'bulma/css/bulma.min.css'
 import './TransactionPart.scss'
 import { toMoney } from '../utils/money'
 import { Fragment } from 'react'
